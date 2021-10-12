@@ -4,14 +4,15 @@
     "scripts": {
         "build": "tsc",
         "postinstall": "cd client/ && npm install && npm run build",
-        "start": "node build/src/index.js",
-        "start:dev": "nodemon"
+        "start": "cross-env NODE_ENV=production node build/src/index.js",
+        "start:dev": "cross-env NODE_ENV=development nodemon"
     },
     "cacheDirectories": [
         "node_modules",
         "client/node_modules"
     ],
     "dependencies": {
+        "cross-env": "^7.0.3",
         "express": "~4.16.1",
         "socket.io": "^4.2.0",
         "socket.io-client": "^4.2.0"
