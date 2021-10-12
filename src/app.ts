@@ -1,5 +1,7 @@
 import path from "path";
 
+console.log(__dirname);
+
 const prodURL = path.join(__dirname, "client", "public", "index.html");
 const devURL = path.join(
     __dirname,
@@ -15,9 +17,5 @@ var app = express();
 app.use(
     express.static(process.env.NODE_ENV === "production" ? prodURL : devURL)
 );
-
-app.get("*", function (req, res) {
-    res.sendFile(process.env.NODE_ENV === "production" ? prodURL : devURL);
-});
 
 module.exports = app;
