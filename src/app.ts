@@ -12,7 +12,9 @@ const devURL = path.join(
 
 var express = require("express");
 var app = express();
-app.use(process.env.NODE_ENV === "production" ? prodURL : devURL);
+app.use(
+    express.static(process.env.NODE_ENV === "production" ? prodURL : devURL)
+);
 
 app.get("*", function (req, res) {
     res.sendFile(process.env.NODE_ENV === "production" ? prodURL : devURL);
