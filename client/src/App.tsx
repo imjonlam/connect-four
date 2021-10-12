@@ -33,7 +33,10 @@ function App() {
     );
 
     useEffect(() => {
-        const socket = io();
+        const socket =
+            process.env.NODE_ENV === "production"
+                ? io()
+                : io("http://localhost:9000");
         socket.on("create_success", (gameID) => setGameID(gameID));
         socket.on("create_error", (message) => setLobbyLabel(message));
         socket.on("join_success", (gameID) => setGameID(gameID));
