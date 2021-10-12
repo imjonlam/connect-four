@@ -3,7 +3,7 @@
     "version": "0.1.0",
     "scripts": {
         "build": "tsc",
-        "postinstall": "cd client/ && npm install && npm run build",
+        "heroku-postbuild": "cd client && npm install && npm run build",
         "start": "cross-env NODE_ENV=production node build/src/index.js",
         "start:dev": "cross-env NODE_ENV=development nodemon"
     },
