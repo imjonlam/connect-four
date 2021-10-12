@@ -1,18 +1,21 @@
 import path from "path";
 
+const prodURL = path.join(__dirname, "..", "client", "public", "index.html");
+const devURL = path.join(
+    __dirname,
+    "..",
+    "..",
+    "client",
+    "public",
+    "index.html"
+);
+
 var express = require("express");
 var app = express();
+app.use(process.env.NODE_ENV === "production" ? prodURL : devURL);
 
-if (process.env.NODE_ENV === "production") {
-    app.use(express.static(path.join(__dirname, "..", "client", "public")));
-} else {
-    app.use(
-        express.static(path.join(__dirname, "..", "..", "client", "public"))
-    );
-}
-
-app.get("/", function (request, response) {
-    response.send("Hello World!");
+app.get("*", function (req, res) {
+    res.sendFile(process.env.NODE_ENV === "production" ? prodURL : devURL);
 });
 
 module.exports = app;
