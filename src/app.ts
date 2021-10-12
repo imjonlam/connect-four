@@ -1,6 +1,6 @@
 import path from "path";
 
-const prodURL = path.join(__dirname, "..", "client", "public", "index.html");
+const prodURL = path.join(__dirname, "client", "public", "index.html");
 const devURL = path.join(
     __dirname,
     "..",
