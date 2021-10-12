@@ -26,7 +26,6 @@ beforeEach(() => {
 
 afterEach(() => {
     leaveGame(game.id);
-    game = null;
 });
 
 describe("a new game", () => {

@@ -1,11 +1,11 @@
 {
     "name": "server",
     "version": "0.1.0",
-    "main": "src/index.js",
     "scripts": {
-        "start": "tsc && node build/index.js",
-        "start:dev": "nodemon",
-		"build": "cd client/ && npm install && npm run build"
+        "build": "tsc",
+        "postinstall": "cd client/ && npm install && npm run build",
+        "start": "node build/src/index.js",
+        "start:dev": "nodemon"
     },
     "cacheDirectories": [
         "node_modules",

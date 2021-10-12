@@ -17,8 +17,8 @@ export const makeMove =
             const winner = model.getPreviousPlayer(gameID);
             model.getPlayers(gameID).forEach((socketID) => {
                 const socket = io.sockets.sockets.get(socketID);
-                socket.emit("winner", winner);
-                socket.emit("game_over");
+                socket?.emit("winner", winner);
+                socket?.emit("game_over");
             });
         }
 
