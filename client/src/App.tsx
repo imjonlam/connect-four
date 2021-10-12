@@ -33,7 +33,7 @@ function App() {
     );
 
     useEffect(() => {
-        const socket = io("http://localhost:9000");
+        const socket = io();
         socket.on("create_success", (gameID) => setGameID(gameID));
         socket.on("create_error", (message) => setLobbyLabel(message));
         socket.on("join_success", (gameID) => setGameID(gameID));

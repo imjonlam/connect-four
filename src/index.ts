@@ -6,6 +6,7 @@ import * as lobbyController from "./controllers/lobby";
 const http = require("http");
 const app = require("./app");
 const server = http.createServer(app);
+const PORT = process.env.PORT || 9000;
 const io = new Server(server, {
     cors: {
         origin: "*",
@@ -24,6 +25,6 @@ io.on("connection", (socket) => {
     socket.on("make_move", gameController.makeMove({ io, socket }));
 });
 
-server.listen(9000, () => {
-    console.log("connected to :9000");
+server.listen(PORT, () => {
+    console.log(`connected to :${PORT}`);
 });
