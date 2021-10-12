@@ -1,9 +1,13 @@
 import path from "path";
 
-console.log(path.join(__dirname, "..", ".."));
-console.log(path.resolve(__dirname, "..", ".."));
-
-const prodURL = path.join(__dirname, "client", "public", "index.html");
+const prodURL = path.join(
+    __dirname,
+    "..",
+    "..",
+    "client",
+    "public",
+    "index.html"
+);
 const devURL = path.join(
     __dirname,
     "..",
