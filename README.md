@@ -1,1 +1,1 @@
-# connect-four
+# kinaxis-connect-four
